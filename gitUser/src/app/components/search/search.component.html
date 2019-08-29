@@ -1,3 +1,19 @@
-<aside class="contacts" *ngIf="searchData | async as data">
-<span> {{data | json}}</span>
-</aside>
+<div class="form-group">
+    <label>
+        <span>Git user name</span>
+        <input #input (keyup)="onSearch(input.value)" type="text" placeholder="Search users..." class="form-control">
+    </label>
+</div>
+
+<ul class="search-result" *ngIf="searchResults | async as searchResults">
+    <li class="search-result--item" *ngFor="let item of searchResults">
+        <h3 class="user-name">{{item.login}}</h3>
+        <div class="avatar">
+            <img [src]="item.avatar_url" alt="item.name">
+        </div>
+        <button (click)="viewUserRepos(item.login)" class="btn btn-primary" role="button">More info</button>
+    </li>
+</ul>
+<div *ngIf="userRepos | async userRepos">
+    {{userRepos | json}}
+</div>

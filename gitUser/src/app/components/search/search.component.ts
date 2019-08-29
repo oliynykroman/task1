@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-search',
@@ -9,13 +10,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SearchComponent implements OnInit {
 
-  public searchData: Observable<Object>;
+  public searchResults: Observable<Object>;
+  public userRepos: Observable<Object>
 
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.searchData = this.userService.getUser();
-    console.log(this.searchData);
+   
   }
-
+  onSearch (value:string){
+    this.searchResults = this.userService.getUser(value);
+  }
+  viewUserRepos(userLogin: string) {
+    this.userRepos = this.userService.getUserRepos(userLogin);
+  }
 }

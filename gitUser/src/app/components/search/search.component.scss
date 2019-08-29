@@ -1,0 +1,34 @@
+.search-result {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .search-result--item {
+        list-style: none;
+        margin: 15px;
+        border: 1px solid rgba(0, 0, 0, .2);
+        padding: 10px;
+        box-sizing: border-box;
+        flex-basis: 33%;
+    }
+}
+
+.search-result--item {
+    .avatar {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        display: flex;
+        margin: 0 auto;
+
+        img {
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+}
