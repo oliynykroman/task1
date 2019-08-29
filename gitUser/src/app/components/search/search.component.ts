@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
    
   }
   onSearch (value:string){
-    this.searchResults = this.userService.getUser(value);
+    this.searchResults= this.userService.getUser(value);
   }
   viewUserRepos(userLogin: string) {
     this.userRepos = this.userService.getUserRepos(userLogin);

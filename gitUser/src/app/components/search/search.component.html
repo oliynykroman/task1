@@ -5,8 +5,8 @@
     </label>
 </div>
 
-<ul class="search-result" *ngIf="searchResults | async as searchResults">
-    <li class="search-result--item" *ngFor="let item of searchResults">
+<ul class="search-result" *ngIf="searchResults | async as item">
+    <li class="search-result--item"  >
         <h3 class="user-name">{{item.login}}</h3>
         <div class="avatar">
             <img [src]="item.avatar_url" alt="item.name">
