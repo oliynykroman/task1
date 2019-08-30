@@ -1,6 +1,31 @@
-<ul *ngIf="userRepos">
-  <li *ngFor="let item of userRepos">
-    <h3 class="repo-name">{{item.name}}</h3>
-    <div class="repo-descr">{{item.description}}</div>
-  </li>
-</ul>
+<nav><button (click)="backToSearch()">backToSearch</button></nav>
+<div class=" user-info-container">
+  <div class="user-info">
+    <div class="user-big-avatar"></div>
+    <div class="avatar">
+      <img [src]="item.avatar_url" alt="item.name">
+    </div>
+    <div class="user-name">{{item.name}}</div>
+    <div class="user-location">{{item.location}}</div>
+    <div class="user-data">{{item.company}}</div>
+    <div class="user-data">{{item.email}}</div>
+    <div class="user-data">{{item.company}}</div>
+    <div class="divider"></div>
+    <div class="user-item--footer">
+      <div class="item followers-count">
+        <span>Followers:</span>
+        <span>{{item.followers}}</span>
+      </div>
+      <div class="item show-repos">
+        <button (click)="showUserReposClick(item)" role="button" class="repo-link">User repos
+          ({{item.public_repos}})</button>
+      </div>
+    </div>
+  </div>
+  <ul *ngIf="userRepos">
+    <li *ngFor="let item of userRepos">
+      <h3 class="repo-name">{{item.name}}</h3>
+      <div class="repo-descr">{{item.description}}</div>
+    </li>
+  </ul>
+</div>

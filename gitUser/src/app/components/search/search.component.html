@@ -3,8 +3,7 @@
         <label class="search-input-container">
             <span class="title">Enter name:</span>
             <div class=input--wrap>
-            <input #input type="text" placeholder="Search users..."
-                class="form-control">
+                <input #input type="text" placeholder="Search users..." class="form-control">
                 <button class="searchbutton" (click)="onSearch(input.value)">search</button>
             </div>
         </label>
@@ -20,9 +19,9 @@
         user with name <strong>{{input.value }}</strong> has no found :(
     </div>
     <div class="find-first-user" *ngIf="!input.value">
-           <span class="greeting">YOooo meeeN!</span>
-           <span class="greeting-sub">Find your first user, here, only today!</span>
-        </div>
+        <span class="greeting">YOooo meeeN!</span>
+        <span class="greeting-sub">Find your first user, here, only today!</span>
+    </div>
     <div class="search-result" *ngIf="searchResults.total_count">
         <div class="search-result--total">Total found <strong>{{searchResults.total_count}}</strong> users</div>
         <ul class="search-result--list">
@@ -43,7 +42,7 @@
                         <span>{{item.followers}}</span>
                     </div>
                     <div class="item show-repos">
-                        <button (click)="showUserRepos(item.login)" role="button" class="repo-link">User repos
+                        <button (click)="showUserReposClick(item)" role="button" class="repo-link">User repos
                             ({{item.public_repos}})</button>
                     </div>
                 </div>

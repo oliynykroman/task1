@@ -1,10 +1,10 @@
 <header class="header">
-<h1>git user search <sub>(task#1)</sub></h1>
+  <h1>git user search <sub>(task#1)</sub></h1>
 </header>
 <main class="container">
-    <app-search (userName)="getUserName($event)"></app-search>
-  <section class="repos-list" *ngIf="userName">
-    <app-repos-list [item]="userName" *ngFor="let item of reposItem"></app-repos-list>
+  <app-search (fullUserData)="fullUserData($event)" *ngIf="!hasRepos"></app-search>
+  <section class="repos-list" *ngIf="hasRepos">
+    <app-repos-list [item]="userData"></app-repos-list>
   </section>
 </main>
 <footer class="footer">

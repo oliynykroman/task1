@@ -20,4 +20,5 @@ export class User {
     public received_events_url?: string;
     public site_admin?: boolean;
     public score?: number;
+    public public_repos?: number;
 }

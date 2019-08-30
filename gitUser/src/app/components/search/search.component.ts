@@ -13,7 +13,7 @@ import { User } from 'src/app/models/user';
 })
 export class SearchComponent implements OnInit, OnDestroy {
 
-  @Output() userName = new EventEmitter();
+  @Output() fullUserData = new EventEmitter();
 
   public search: Subject<string> = new Subject<string>();
   public searchResults: SearchResults = new SearchResults();
@@ -60,6 +60,11 @@ export class SearchComponent implements OnInit, OnDestroy {
   // select list count
   onSelectOption(count: number) {
     this.onSearch(this.searchValue, count);
+  }
+
+
+  showUserReposClick(item:User){
+    this.fullUserData.emit(item);
   }
 
   ngOnDestroy() {

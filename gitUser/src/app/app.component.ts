@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  public userHasRepos: boolean = false;
+  public userData: User = new User();
+  public hasRepos: boolean = false;
 
-  public userName:string = '';
-
-  getUserName(userName: string) {
-    this.userName = userName;
+  fullUserData(fullUserData: User) {
+    // check if user has repos
+    if (fullUserData.public_repos) {
+      this.hasRepos = true;
+      this.userData = fullUserData;
+    }
   }
 }
