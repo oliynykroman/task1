@@ -1,3 +1,6 @@
-<p>
-  repos-list works!
-</p>
+<ul *ngIf="userRepos">
+  <li *ngFor="let item of userRepos">
+    <h3 class="repo-name">{{item.name}}</h3>
+    <div class="repo-descr">{{item.description}}</div>
+  </li>
+</ul>

@@ -1,6 +1,8 @@
 <main class="container">
 <section class="search">
-  <app-search></app-search>
+  <app-search (userName)="getUserName($event)"></app-search>
 </section>
-<section class=""></section>
+<!-- <section class="repos-list" *ngIf="userName">
+  <app-repos-list [item]="userName" *ngFor="let item of reposItem"></app-repos-list>
+</section> -->
 </main>

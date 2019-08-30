@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
+import { EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-search',
@@ -10,18 +12,20 @@ import { User } from 'src/app/models/user';
 })
 export class SearchComponent implements OnInit {
 
+  @Output() userName = new EventEmitter();
+
   public searchResults: Observable<Object>;
-  public userRepos: Observable<Object>
+
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-   
+
   }
-  onSearch (value:string){
-    this.searchResults= this.userService.getUser(value);
+  onSearch(value: string) {
+    this.searchResults = this.userService.getUser(value);
   }
-  viewUserRepos(userLogin: string) {
-    this.userRepos = this.userService.getUserRepos(userLogin);
-  }
+  // showUserRepos(userlogin: string) {
+  //   this.userName.emit(userlogin);
+  // }
 }

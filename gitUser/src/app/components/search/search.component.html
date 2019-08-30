@@ -4,16 +4,15 @@
         <input #input (keyup)="onSearch(input.value)" type="text" placeholder="Search users..." class="form-control">
     </label>
 </div>
-
-<ul class="search-result" *ngIf="searchResults | async as item">
-    <li class="search-result--item"  >
+<div class="user_not-found" *ngIf="searchResults | async as items">
+    <h2 *ngIf="!items">user with name {{items.length}} has no found</h2>
+</div>
+<ul class="search-result" *ngIf="searchResults | async as items">
+    <li class="search-result--item"  *ngFor="let item of items">
         <h3 class="user-name">{{item.login}}</h3>
         <div class="avatar">
             <img [src]="item.avatar_url" alt="item.name">
         </div>
-        <button (click)="viewUserRepos(item.login)" class="btn btn-primary" role="button">More info</button>
+        <button (click)="showUserRepos(item.login)" role="button">More info</button>
     </li>
 </ul>
-<div *ngIf="userRepos | async userRepos">
-    {{userRepos | json}}
-</div>

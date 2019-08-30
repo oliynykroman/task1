@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'gitUser';
+
+  public userHasRepos: boolean = false;
+
+  public userName:string = '';
+
+  getUserName(userName: string) {
+    this.userName = userName;
+  }
 }
