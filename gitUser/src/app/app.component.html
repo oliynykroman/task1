@@ -1,8 +1,12 @@
+<header class="header">
+<h1>git user search <sub>(task#1)</sub></h1>
+</header>
 <main class="container">
-<section class="search">
-  <app-search (userName)="getUserName($event)"></app-search>
-</section>
-<!-- <section class="repos-list" *ngIf="userName">
-  <app-repos-list [item]="userName" *ngFor="let item of reposItem"></app-repos-list>
-</section> -->
+    <app-search (userName)="getUserName($event)"></app-search>
+  <section class="repos-list" *ngIf="userName">
+    <app-repos-list [item]="userName" *ngFor="let item of reposItem"></app-repos-list>
+  </section>
 </main>
+<footer class="footer">
+  <p>&copy; 2019 Ovdal.dk</p>
+</footer>

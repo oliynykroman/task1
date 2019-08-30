@@ -1,18 +1,56 @@
-<div class="form-group">
-    <label>
-        <span>Git user name</span>
-        <input #input (keyup)="onSearch(input.value)" type="text" placeholder="Search users..." class="form-control">
-    </label>
-</div>
-<div class="user_not-found" *ngIf="searchResults | async as items">
-    <h2 *ngIf="!items">user with name {{items.length}} has no found</h2>
-</div>
-<ul class="search-result" *ngIf="searchResults | async as items">
-    <li class="search-result--item"  *ngFor="let item of items">
-        <h3 class="user-name">{{item.login}}</h3>
-        <div class="avatar">
-            <img [src]="item.avatar_url" alt="item.name">
+<section class="search">
+    <div class="form-group">
+        <label class="search-input-container">
+            <span class="title">Enter name:</span>
+            <div class=input--wrap>
+            <input #input type="text" placeholder="Search users..."
+                class="form-control">
+                <button class="searchbutton" (click)="onSearch(input.value)">search</button>
+            </div>
+        </label>
+        <label class="filter-class">
+            <span class="filter-class--title">Show on page:</span>
+            <select name="showTotal" class=filter-select (change)="onSelectOption($event.target.value)">
+                <option value="{{total}}" *ngFor="let total of showOnPage">{{total}}</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="user_not-found" *ngIf="!searchResults.total_count && input.value">
+        user with name <strong>{{input.value }}</strong> has no found :(
+    </div>
+    <div class="find-first-user" *ngIf="!input.value">
+           <span class="greeting">YOooo meeeN!</span>
+           <span class="greeting-sub">Find your first user, here, only today!</span>
         </div>
-        <button (click)="showUserRepos(item.login)" role="button">More info</button>
-    </li>
-</ul>
+    <div class="search-result" *ngIf="searchResults.total_count">
+        <div class="search-result--total">Total found <strong>{{searchResults.total_count}}</strong> users</div>
+        <ul class="search-result--list">
+            <li class="search-result--item" *ngFor="let item of userData">
+                <div class="user-big-avatar"></div>
+                <div class="avatar">
+                    <img [src]="item.avatar_url" alt="item.name">
+                </div>
+                <div class="user-name">{{item.name}}</div>
+                <div class="user-location">{{item.location}}</div>
+                <div class="user-data">{{item.company}}</div>
+                <div class="user-data">{{item.email}}</div>
+                <div class="user-data">{{item.company}}</div>
+                <div class="divider"></div>
+                <div class="user-item--footer">
+                    <div class="item followers-count">
+                        <span>Followers:</span>
+                        <span>{{item.followers}}</span>
+                    </div>
+                    <div class="item show-repos">
+                        <button (click)="showUserRepos(item.login)" role="button" class="repo-link">User repos
+                            ({{item.public_repos}})</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="pagination">
+
+        </div>
+    </div>
+</section>
