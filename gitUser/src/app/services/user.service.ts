@@ -5,7 +5,7 @@ import { RequestOptionsArgs, Http, Headers } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SearchResults } from '../models/searchResults';
 
-const TOKEN = "3f5df99f02f06f35706d79513863a0b1ff88a12d";
+const TOKEN = "2de5676c6be0cbf350fba27d97e23ca3105077d0";
 const APIURL = 'https://api.github.com/';
 
 // const APIURL = 'http://localhost:3000/';
@@ -48,6 +48,6 @@ export class UserService {
     return this.http.get<User>(followersoUrl, this.httpOptions);
   }
   public getUserRepos(repoUrl: string) {
-    return this.http.get<Repos>(repoUrl, this.httpOptions);
+    return this.http.get<Repos[]>(repoUrl, this.httpOptions);
   }
 }
