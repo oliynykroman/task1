@@ -18,4 +18,8 @@ export class AppComponent {
       this.userData = fullUserData;
     }
   }
+  backToSearchStateChange($event){
+    this.hasRepos = $event;
+  }
+
 }

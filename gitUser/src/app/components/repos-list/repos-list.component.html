@@ -1,31 +1,47 @@
-<nav><button (click)="backToSearch()">backToSearch</button></nav>
+
 <div class=" user-info-container">
   <div class="user-info">
-    <div class="user-big-avatar"></div>
-    <div class="avatar">
-      <img [src]="item.avatar_url" alt="item.name">
-    </div>
-    <div class="user-name">{{item.name}}</div>
-    <div class="user-location">{{item.location}}</div>
-    <div class="user-data">{{item.company}}</div>
-    <div class="user-data">{{item.email}}</div>
-    <div class="user-data">{{item.company}}</div>
-    <div class="divider"></div>
-    <div class="user-item--footer">
-      <div class="item followers-count">
-        <span>Followers:</span>
-        <span>{{item.followers}}</span>
+    <div class="user-info--container">
+      <div class="user-big-avatar"></div>
+      <div class="avatar">
+        <img [src]="item.avatar_url" alt="item.name">
       </div>
-      <div class="item show-repos">
-        <button (click)="showUserReposClick(item)" role="button" class="repo-link">User repos
-          ({{item.public_repos}})</button>
+      <div class="user-name">{{item.name}}</div>
+      <div class="user-location">{{item.location}}</div>
+      <div class="user-data">{{item.company}}</div>
+      <div class="user-data">{{item.email}}</div>
+      <div class="user-data">{{item.company}}</div>
+      <div class="user-info-followers">
+          <h3 *ngIf="!userFollowers.length">User don't have any followers</h3>
+          <div class="followers-container" *ngIf="userFollowers.length">
+            <h3 class="title">User followers:</h3>
+            <ul class="user-info--folloowers-list">
+              <li class="followers-list--item" *ngFor="let item of userFollowers">
+                <div class="followers-avatar">
+                  <img [src]="item.avatar_url" alt="item.name">
+                </div>
+                <div class="followers-user-name">{{item.name}}</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="user-info-repos">
+      <h3 *ngIf="!userRepos.length">User don't have any repos</h3>
+      <div class="followers-container" *ngIf="userRepos.length">
+        <h3 class="title">User repos:</h3>
+        <label class="filter-class">
+            <span class="filter-class--title">Sort:</span>
+            <select name="showTotal" class=filter-select (change)="onSelectOption($event.target.value)">
+                <option value="{{total}}" *ngFor="let total of showOnPage">{{total}}</option>
+            </select>
+        </label>
+        <ul class="user-info--repos-list">
+          <li class="followers-repos--item" *ngFor="let item of userRepos">
+            <div class="followers-repo-name">{{item.name}}</div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-  <ul *ngIf="userRepos">
-    <li *ngFor="let item of userRepos">
-      <h3 class="repo-name">{{item.name}}</h3>
-      <div class="repo-descr">{{item.description}}</div>
-    </li>
-  </ul>
 </div>

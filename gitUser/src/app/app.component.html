@@ -4,7 +4,8 @@
 <main class="container">
   <app-search (fullUserData)="fullUserData($event)" *ngIf="!hasRepos"></app-search>
   <section class="repos-list" *ngIf="hasRepos">
-    <app-repos-list [item]="userData"></app-repos-list>
+      <nav><button (click)="hasRepos = false" class="backToSearchPage">back to search</button></nav>
+    <app-repos-list [item]="userData" (backtoSearch)="backToSearchStateChange($event)"></app-repos-list>
   </section>
 </main>
 <footer class="footer">
