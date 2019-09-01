@@ -32,14 +32,13 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   }
 
-  onSearch(value: string, count: number) {
+  onSearch(value: string, count?: number) {
     this.searchValue = value;
-    console.log(this.userData);
     if (this.searchValue) {
       this.subscription = this.userService.searchUser(value, count).subscribe((data) => {
         this.searchResults = data;
         this.userData = [];
-        // get full user info, maybe EBALA but this EBALA works :)
+        // gtting each user full information
         for (let i = 0; i < this.searchResults.items.length; i++) {
           this.getUserInfo(this.searchResults.items[i].login);
         }
