@@ -18,6 +18,9 @@
     <div class="user_not-found" *ngIf="!searchResults.total_count && input.value">
         user with name <strong>{{input.value }}</strong> has no found :(
     </div>
+    <div class="error" *ngIf="error">
+       Ooops Eror: {{error}}
+    </div>
     <div class="find-first-user" *ngIf="!input.value">
         <span class="greeting">YOooo meeeN!</span>
         <span class="greeting-sub">Find your first user, here, only today!</span>

@@ -12,6 +12,9 @@
       <div class="user-data">{{item.company}}</div>
       <div class="user-info-followers">
         <h3 *ngIf="!userFollowers.length">User don't have any followers</h3>
+        <h3 class="error" *ngIf="error">
+          Ooops Eror: {{error}}
+        </h3>
         <div class="followers-container" *ngIf="userFollowers.length">
           <h3 class="title">User followers:</h3>
           <ul class="user-info--folloowers-list">
@@ -27,6 +30,9 @@
     </div>
     <div class="user-info-repos">
       <h3 *ngIf="!userRepos.length">User don't have any repos</h3>
+      <h3 class="error" *ngIf="error">
+        Ooops Eror: {{error}}
+      </h3>
       <div class="followers-container" *ngIf="userRepos.length">
         <h3 class="title">User repos:</h3>
         <label class="filter-class">

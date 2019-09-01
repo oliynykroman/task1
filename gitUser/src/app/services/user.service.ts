@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Repos } from '../models/repos';
 import { RequestOptionsArgs, Http, Headers } from '@angular/http';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { SearchResults } from '../models/searchResults';
+import { throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
- const TOKEN = "80039313ce73bb50afbb76b4425c32de605d9669";
+// const TOKEN = "80039313ce73bb50afbb76b4425c32de605d9669";
 const APIURL = 'https://api.github.com/';
 
 // const APIURL = 'http://localhost:3000/';
@@ -21,7 +23,7 @@ export class UserService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-       'Authorization': 'token ' + TOKEN
+      // 'Authorization': 'token ' + TOKEN
     })
   };
 
@@ -36,9 +38,9 @@ export class UserService {
   }
 
 
-  public searchUser(user: string, showOnPage:number = 10) {
+  public searchUser(user: string, showOnPage: number = 10) {
     // &per_page=10&page=2
-    return this.http.get<SearchResults>(this.createUrl('search/users?q=', user + ' &per_page='+ showOnPage), this.httpOptions);
+    return this.http.get<SearchResults>(this.createUrl('search/users?q=', user + ' &per_page=' + showOnPage), this.httpOptions);
   }
 
   public getUserInfo(user: string) {
