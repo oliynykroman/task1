@@ -5,7 +5,7 @@ import { RequestOptionsArgs, Http, Headers } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SearchResults } from '../models/searchResults';
 
-const TOKEN = "2de5676c6be0cbf350fba27d97e23ca3105077d0";
+const TOKEN = "80039313ce73bb50afbb76b4425c32de605d9669";
 const APIURL = 'https://api.github.com/';
 
 // const APIURL = 'http://localhost:3000/';

@@ -162,12 +162,57 @@
         background-color: var(--white);
         padding: 10px;
         border-radius: 10px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         text-align: left;
         list-style: none;
+        cursor: pointer;
+        transition: all .3s ease;
+
+        a {
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        &:hover {
+            box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2);
+        }
+
+    }
+
+    .followers-repo-name {
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .followers-repo-descr {
+        margin-bottom: 20px;
+        font-size: 14px;
     }
 }
 
 .filter-class {
     text-align: left
+}
+
+.repo-info {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #b5bbb025;
+
+    >div {
+        width: 50%;
+        border-right: 1px solid #b5bbb025;
+        padding: 5px;
+        font-size: 13px;
+        text-align: center;
+
+        span {
+            display: inline-block;
+            width: 100%;
+        }
+
+        &:last-child {
+            border-right: none;
+        }
+    }
 }
