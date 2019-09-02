@@ -5,6 +5,10 @@ import { EventEmitter } from '@angular/core';
 import { SearchResults } from 'src/app/models/searchResults';
 import { User } from 'src/app/models/user';
 
+export class Sort { //for now can be here, but in general will be better if made form this sort, maybe pipe
+  public name: string;
+  public value: string;
+}
 
 @Component({
   selector: 'app-search',
@@ -24,8 +28,21 @@ export class SearchComponent implements OnInit, OnDestroy {
   public searchValue: string = ''
   public showOnPage: number[] = [
     10, 15, 20, 25, 30
-  ]
+  ];
+
+  public sort: Sort[] = [
+    {
+      name: 'a->z',
+      value: 'az'
+    },
+    {
+      name: 'z->a',
+      value: 'za'
+    },
+  ];
+
   private subscription: Subscription;
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -60,9 +77,20 @@ export class SearchComponent implements OnInit, OnDestroy {
   onSelectOption(count: number) {
     this.onSearch(this.searchValue, count);
   }
+  onSortOption(sortDirection: string) {
+    console.log(sortDirection);
+    if (sortDirection === 'az') {
+      this.userData.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+    } else {
+      this.userData.sort((a, b) => {
+        return b.name.localeCompare(a.name); //read about LocalCompare !
+      });
+    }
+  }
 
-
-  showUserReposClick(item:User){
+  showUserReposClick(item: User) {
     this.fullUserData.emit(item);
   }
 

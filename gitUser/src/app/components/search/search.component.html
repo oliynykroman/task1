@@ -4,15 +4,23 @@
             <span class="title">Enter name:</span>
             <div class=input--wrap>
                 <input #input type="text" placeholder="Search users..." class="form-control">
-                <button class="searchbutton" (click)="onSearch(input.value)">search</button>
+                <button class="searchbutton" (click)="onSearch(input.value)" >search</button>
             </div>
         </label>
+        <div class="filter-block">
         <label class="filter-class">
             <span class="filter-class--title">Show on page:</span>
-            <select name="showTotal" class=filter-select (change)="onSelectOption($event.target.value)">
+            <select name="showTotal" class="filter-select" (change)="onSelectOption($event.target.value)">
                 <option value="{{total}}" *ngFor="let total of showOnPage">{{total}}</option>
             </select>
         </label>
+        <label class="filter-class">
+            <span class="filter-class--title">Sort:</span>
+            <select name="showTotal" class="filter-select" (change)="onSortOption($event.target.value)">
+                <option [value]="sort.value" *ngFor="let sort of sort">{{sort.name}}</option>
+            </select>
+        </label>
+    </div>
     </div>
 
     <div class="user_not-found" *ngIf="!searchResults.total_count && input.value">

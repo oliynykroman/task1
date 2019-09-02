@@ -7,7 +7,7 @@ import { SearchResults } from '../models/searchResults';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-// const TOKEN = "80039313ce73bb50afbb76b4425c32de605d9669";
+ const TOKEN = "9e6d85a2efc83b2b9782f99f6888af3556a6d7d4";
 const APIURL = 'https://api.github.com/';
 
 // const APIURL = 'http://localhost:3000/';
@@ -23,7 +23,7 @@ export class UserService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // 'Authorization': 'token ' + TOKEN
+       'Authorization': 'token ' + TOKEN
     })
   };
 

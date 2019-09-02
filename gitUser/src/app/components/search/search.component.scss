@@ -1,111 +1,112 @@
 .search {
-    display: flex;
+    display       : flex;
     flex-direction: column;
-    width: 100%;
+    width         : 100%;
 
     .form-group {
-        display: flex;
+        display       : flex;
         flex-direction: column;
     }
 }
 
 .search-result {
-    margin: 0;
-    padding: 0;
-    display: flex;
+    margin        : 0;
+    padding       : 0;
+    display       : flex;
     flex-direction: column;
 
 }
 
 .user_not-found {
-    margin: 3em 0;
-    color: var(--black);
+    margin    : 3em 0;
+    color     : var(--black);
     text-align: center;
-    font-size: 1.1em;
+    font-size : 1.1em;
 }
 
 .find-first-user {
-    margin: 6em auto 0 auto;
-    text-align: center;
-display: flex;
-flex-direction: column;
+    margin        : 6em auto 0 auto;
+    text-align    : center;
+    display       : flex;
+    flex-direction: column;
+
     .greeting {
-        font-size: 72px;
-        color: var(--red);
+        font-size  : 72px;
+        color      : var(--red);
         font-weight: 600;
     }
 
     .greeting-sub {
-        font-size: 28px;
-        color: var(--black);
+        font-size  : 28px;
+        color      : var(--black);
         font-weight: 100;
     }
 }
 
 .search-result--total {
     text-align: right;
-    color: var(--black);
-    font-size: 16px;
-    margin: 3em 0 0 0;
-    padding: 1em 0 0 0;
+    color     : var(--black);
+    font-size : 16px;
+    margin    : 3em 0 0 0;
+    padding   : 1em 0 0 0;
     border-top: 1px solid rgba(0, 0, 0, .1);
 }
 
 .search-result--list {
-    display: grid;
-    grid-gap: 30px;
+    display              : grid;
+    grid-gap             : 30px;
     grid-template-columns: repeat(4, 1fr);
-    margin: 100px 0 0 0;
-    padding: 0;
+    margin               : 100px 0 0 0;
+    padding              : 0;
 
     .search-result--item {
-        list-style: none;
-        border-radius: 10px;
-        padding: 100px 0 0 0;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        overflow: hidden;
+        list-style      : none;
+        border-radius   : 10px;
+        padding         : 100px 0 0 0;
+        display         : flex;
+        flex-direction  : column;
+        position        : relative;
+        overflow        : hidden;
         background-color: #f2f2f2;
-        border: 1px solid #b5bbb025;
-        color: #534d6c;
-        text-align: center;
+        border          : 1px solid #b5bbb025;
+        color           : #534d6c;
+        text-align      : center;
 
         .user-big-avatar {
-            position: absolute;
-            top: 0;
-            left: 0;
+            position        : absolute;
+            top             : 0;
+            left            : 0;
             background-color: #534d6c;
-            width: 100%;
-            height: 100px;
+            width           : 100%;
+            height          : 100px;
         }
 
         .avatar {
-            width: 154px;
-            height: 154px;
-            position: relative;
-            display: flex;
-            margin: -77px auto 0 auto;
-            border: 2px solid var(--white);
-            border-radius: 50%;
-            overflow: hidden;
+            width           : 154px;
+            height          : 154px;
+            position        : relative;
+            display         : flex;
+            margin          : -77px auto 0 auto;
+            border          : 2px solid var(--white);
+            border-radius   : 50%;
+            overflow        : hidden;
             background-color: var(--white);
 
             img {
-                position: absolute;
+                position  : absolute;
                 object-fit: cover;
-                width: 100%;
-                height: 100%;
+                width     : 100%;
+                height    : 100%;
             }
         }
 
         .user-name {
-            margin: 10px 0 0 0;
-            white-space: nowrap;
-            overflow: hidden;
+            margin       : 10px 0 0 0;
+            white-space  : nowrap;
+            overflow     : hidden;
             text-overflow: ellipsis;
-            width: 100%;
-            font-size: 24px;
+            width        : 100%;
+            font-size    : 24px;
         }
 
         .user-location {
@@ -113,10 +114,10 @@ flex-direction: column;
         }
 
         .user-data {
-            font-size: 14px;
+            font-size : 14px;
             margin-top: 5px;
-            width: 100%;
-            display: inline-block;
+            width     : 100%;
+            display   : inline-block;
         }
 
         .divider {
@@ -124,12 +125,12 @@ flex-direction: column;
         }
 
         .user-item--footer {
-            display: flex;
+            display       : flex;
             flex-direction: row;
-            border-top: 1px solid #b5bbb025;
-            margin-top: auto;
-            align-items: center;
-            margin-bottom: 0;
+            border-top    : 1px solid #b5bbb025;
+            margin-top    : auto;
+            align-items   : center;
+            margin-bottom : 0;
 
             .item {
                 width: 50%;
@@ -137,21 +138,21 @@ flex-direction: column;
 
             .followers-count {
                 border-right: 1px solid #b5bbb025;
-                padding: 5px;
-                font-size: 13px;
-                text-align: center;
+                padding     : 5px;
+                font-size   : 13px;
+                text-align  : center;
 
                 span {
                     display: inline-block;
-                    width: 100%;
+                    width  : 100%;
                 }
             }
 
             .repo-link {
-                border: none;
-                color: var(--red);
+                border          : none;
+                color           : var(--red);
                 background-color: none;
-                cursor: pointer;
+                cursor          : pointer;
 
                 &:hover {
                     text-decoration: underline;

@@ -33,14 +33,17 @@
       <h3 class="error" *ngIf="error">
         Ooops Eror: {{error}}
       </h3>
-      <div class="followers-container" *ngIf="userRepos.length">
+      <div class="repos-container" *ngIf="userRepos.length">
         <h3 class="title">User repos:</h3>
-        <label class="filter-class">
-          <span class="filter-class--title">Sort:</span>
-          <select name="showTotal" class=filter-select (change)="onSelectOption($event.target.value)">
-            <option value="{{total}}" *ngFor="let total of showOnPage">{{total}}</option>
-          </select>
-        </label>
+        <div class="filter-block">
+      
+          <label class="filter-class">
+              <span class="filter-class--title">Sort:</span>
+              <select name="showTotal" class="filter-select" (change)="onSortOption($event.target.value)">
+                  <option [value]="sort.value" *ngFor="let sort of sort">{{sort.name}}</option>
+              </select>
+          </label>
+          </div>
         <ul class="user-info--repos-list">
           <li class="followers-repos--item" *ngFor="let item of userRepos">
             <a [href]="item.html_url" target="blank">
